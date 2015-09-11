@@ -1,0 +1,48 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pack;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+/**
+ *
+ * @author sumit
+ */
+public class UserAppointmentInformation extends org.apache.struts.action.Action {
+
+    /* forward name="success" path="" */
+    private static final String SUCCESS = "success";
+
+    /**
+     * This is the action called from the Struts framework.
+     * @param mapping The ActionMapping used to select this instance.
+     * @param form The optional ActionForm bean for this request.
+     * @param request The HTTP Request we are processing.
+     * @param response The HTTP Response we are processing.
+     * @throws java.lang.Exception
+     * @return
+     */
+    @Override
+    public ActionForward execute(ActionMapping mapping, ActionForm form,
+            HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
+        Connection cn=connection.con();
+        HttpSession session=request.getSession(false);
+        String User_id=(String)session.getAttribute("login");
+        PreparedStatement pmt=cn.prepareStatement("select doctor.name,doctor.specialize,doctor.mobile,doctor.address,appointment.response_time,appointment.DateANDTime from doctor,appointment where patient_id=? and doctor.D_id=appointment.Doctor_id and response_time IS NOT NULL order by DateANDTime");
+pmt.setString(1,User_id);
+ResultSet rs=pmt.executeQuery();
+request.setAttribute("Result",rs);
+        return mapping.findForward("UserAppointment");
+    }
+}

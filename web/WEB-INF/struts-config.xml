@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean name="sortAppointmentInformation" type="pack.sortAppointmentInformation"/>
+        <form-bean name="Sort1" type="pack.Sort1"/>
+        <form-bean name="AppointmentComfirm" type="pack.AppointmentComfirm"/>
+        <form-bean name="DoctorEditProfile" type="pack.DoctorEditProfile"/>
+        <form-bean name="AddNews" type="pack.AddNews"/>
+        <form-bean name="ComplainResponse" type="pack.ComplainResponse"/>
+        <form-bean name="EditProfile" type="pack.EditProfile"/>
+        <form-bean name="Complain" type="pack.Complain"/>
+        <form-bean name="AskDoctor" type="pack.AskDoctor"/>
+        <form-bean name="GetAppointment" type="pack.GetAppointment"/>
+        <form-bean name="Upload" type="pack.Upload"/>
+        <form-bean name="DocReg" type="pack.DocReg"/>
+        <form-bean name="Reg" type="pack.Reg"/>
+        <form-bean name="Register" type="pack.Register"/>
+        <form-bean name="Login" type="pack.Login"/>
+    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+
+    <global-forwards>
+        <forward name="welcome"  path="/Welcome.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action input="/login.jsp" name="Login" path="/Login" scope="request" type="pack.LogAuth1">
+        <forward name="us" path="Tiles.User"/> 
+        <forward name="doc" path="Tiles.Doctor"/>
+        <forward name="admin" path="Tiles.Admin"/>
+           <forward name="nologin" path="Tiles.LoginFailed"/></action>
+        <action input="/register.jsp" name="Register" path="/Register" scope="session" type="pack.RegisterComp">
+          
+        </action>
+        
+      
+        <action input="/register.jsp" name="Reg" path="/Register" scope="session" type="pack.Reg1">
+             <forward name="rs" path="Tiles.RegComp"/>
+             </action>
+              <action path="/EditProfile" forward="Tiles.EditProfile"/>
+            <action path="/AddNews1" forward="Tiles.AddNews1"/>
+              <action path="/AdminHome" forward="Tiles.Admin"/>
+              <action path="/UserHome" forward="Tiles.User"/>
+              <action path="/DoctorHome" forward="Tiles.Doctor"/>
+             <action path="/DoctorReg" forward="Tiles.DocReg"/>
+           <action path="/ViewComplain" forward="Tiles.ViewComplain"/>
+             <action path="/UsersList" forward="Tiles.UserList"/>
+           
+              
+     
+      <action path="/DoctorComplain" forward="Tiles.DoctorComplain"/>
+       
+       <action path="/DoctorEdit" forward="Tiles.DoctorEdit"/>
+      <action path="/Sinout" scope="request" type="pack.Sinout">
+        <forward name="home" path="Tiles.Login"/>    
+        </action>
+        <action path="/logout" scope="request" type="pack.Sinout">
+        <forward name="home" path="Tiles.Login"/>    
+        </action>
+         <action path="/AskDoctor1" forward="Tiles.AskDoctor"/>
+          <action path="/DiscussionDoctor" forward="Tiles.DiscussionDoctor"/>
+          <action path="/GetAppointment1" forward="Tiles.GetAppointment"/>
+        <action path="/Complain1" forward="Tiles.UserComplain"/>
+        <action input="/Doctor_Reg.jsp" name="DocReg" path="/DocReg" scope="session" type="pack.DocRegAction">
+        <forward name="Dock" path="Tiles.DocRegComp"/>    
+        </action>
+        <action input="/uplaodpics.jsp" name="Upload" path="/upload" scope="session" type="pack.UpAction">
+        <forward name="y" path="/yes.jsp"/> 
+        <forward name="n" path="/no.jsp"/>
+        </action>
+         <action path="/Response" forward="Tiles.Response"/>
+       <action path="/Complaindelete" forward="/ComplainDelete.jsp"/>   
+       
+       
+         <action path="/gt" forward="Tiles.GetAppointment"/>
+          <action path="/Ad" forward="Tiles.AskDoctor"/>
+        <action path="/ViewUser" type="pack.ViewUser">
+        <forward name="vv" path="Tiles.ViewUser"/>    
+        </action>
+        <action path="/ViewDoctor" type="pack.ViewDoctor">
+        <forward name="vd" path="Tiles.ViewDoctor"/>
+         <forward name="uvd" path="Tiles.ViewDoctorProfile"/>
+         
+           <forward name="dvd" path="Tiles.ViewDoctorProfile2"/>
+       </action>
+        <action input="/GetAppointment.jsp" name="GetAppointment" path="/GetAppointment" scope="session" type="pack.GetAppointmentAction">
+            <forward name="UserProfile" path="Tiles.User"/>
+             
+            <forward name="getAppoint" path="Tiles.GetAppointment"/>
+            
+            </action>
+        <action input="/AskDoctor.jsp" name="AskDoctor" path="/AskDoctor" scope="session" type="pack.AskDoctorAction">
+            <forward name="UserProfile" path="Tiles.User"/>
+            <forward name="DoctorProfile" path="Tiles.DoctorList2"/>
+            </action>
+        <action input="/Complain.jsp" name="Complain" path="/Complain" scope="session" type="pack.ComplainAction">
+        <forward name="UserComplain1" path="Tiles.User"/> 
+          <forward name="DoctorComplain1" path="Tiles.Doctor"/>
+        </action>
+        <action input="/editprofile.jsp" name="EditProfile" path="/Edit" scope="session" type="pack.EditProfileAction">
+            <forward name="UserProfile" path="Tiles.User"/>
+            </action>
+        <action path="/GetData" type="pack.Data"/>
+        
+       
+        
+        <action input="/" name="Reg" path="/RegComp" scope="session" type="pack.RegComp"/>
+        <action path="/RegComp" type="pack.RegComp"/>
+        <action path="/template" forward="Tiles.Layout"/>
+       <action path="/DoctorDoctorList" forward="Tiles.DoctorList2"/>
+        <action path="/Lo" forward="Tiles.Login"/>
+       <action path="/reg" forward="Tiles.Register"/>
+       <action path="/tem" forward="Tiles.Layout"/>
+       <action path="/Response" type="pack.ViewComplain">
+           <forward name="Response" path="Tiles.Response"/>
+       </action>
+        <action input="/ComplainResponse.jsp" name="ComplainResponse" path="/ComplainResponse" scope="session" type="pack.ComplainResponseAction">
+            <forward name="complainList23" path="/forward5.jsp"/>
+            </action>
+        <action input="/News.jsp" name="AddNews" path="/AddNews" scope="session" type="pack.AddNewsAction">
+             <forward name="AdminHome" path="Tiles.Admin"/>
+            </action>
+        <action path="/ComplainList1" type="pack.NewStrutsAction">
+            
+        <forward name="ViewComplain1" path="Tiles.ViewComplain"/></action>
+        <action input="/DoctorEditProfile.jsp" name="DoctorEditProfile" path="/DoctorEditProfile" scope="session" type="pack.DoctorEditProfileAction">
+            <forward name="DoctorProfile" path="Tiles.Doctor"/>
+           </action>
+        <action path="/DoctorAppointmentInformation" type="pack.DoctorAppointmentInformationAction">
+        <forward name="dai" path="Tiles.DoctorAppointmentInformation"/>    
+        </action>
+        <action input="/DoctorAppointmentInformation.jsp" name="AppointmentComfirm" path="/AppointmentConfirm" scope="session" type="pack.AppointmentConfirmAction">
+            <forward name="lid" path="/forward.jsp"/>
+            </action>
+        <action path="/DeleteDoctor" type="pack.DeleteDoctor">
+            <forward name="dlp" path="/forward3.jsp"/>
+             
+            </action>
+            <action path="/Rules" forward="Tiles.Rules"/>
+             <action path="/Contactus" forward="Tiles.ContactUs"/>
+             <action path="/Aboutus" forward="Tiles.AboutUs"/>
+        <action path="/DoctorList" type="pack.DoctorList">
+             <forward name="AdminDoctorList" path="Tiles.DoctorList"/>
+                <forward name="UserDoctorList" path="Tiles.UserDoctorlist"/>
+                   <forward name="DoctorDoctorList" path="Tiles.DoctorList2"/>
+                  <forward name="Doctor1DoctorList" path="Tiles.DoctorList23"/> 
+            </action>
+        <action path="/DeleteUser" type="pack.DeleteUser">
+            <forward name="ulp" path="Tiles.UserList"/>
+            </action>
+        <action path="/DeleteAppointment" type="pack.DeleteAppointment">
+            <forward name="dxp" path="/forward.jsp"/>
+           </action>
+        <action path="/AppointmentTimeChange" type="pack.AppointmentTimeChange">
+           <forward name="dxp" path="/forward.jsp"/>
+           </action>
+        <action path="/ApplyForComplain" type="pack.ApplyForComplain">
+             <forward name="DoctorComplain" path="Tiles.DoctorComplain"/>
+              <forward name="UserComplain" path="Tiles.UserComplain"/>
+           </action>
+        
+        <action path="/QuestionList1" type="pack.QuestionList">
+             <forward name="QuestionList1" path="Tiles.QuestionList"/> 
+            </action>
+        <action path="/DeleteQuestion" type="pack.DeleteQuestion">
+    <forward name="QuestionList" path="/forward1.jsp"/> 
+            </action>
+        <action path="/UserAppointmentInformation" type="pack.UserAppointmentInformation">
+            <forward name="UserAppointment" path="Tiles.UserAppointmentInformation"/>
+            </action>
+        <action path="/Prescription" type="pack.Prescription">
+             <forward name="UserPrescription" path="Tiles.UserPrescription"/>
+            </action>
+        <action path="/bill" type="pack.bill">
+             <forward name="Userbill" path="Tiles.UserBill"/>
+            </action>
+        <action path="/AddMedicineForUser" type="pack.AddMedicineForUser">
+        <forward name="ar" path="Tiles.Answer"/>    
+        </action>
+        <action path="/UserComplainResponse" type="pack.UserComplainResponse">
+           <forward name="UserComplainResponse" path="Tiles.UserComplainResponse"/>    
+            <forward name="DoctorComplainResponse" path="Tiles.DoctorComplainResponse"/> 
+            
+            </action>
+        <action path="/UserNews" type="pack.UserNews">
+         <forward name="UserNews" path="Tiles.UserNews"/>        
+            </action>   
+            <action path="/UserNews1" forward="Tiles.UserNews1"/>
+        <action path="/Answer" type="pack.UserInformationForQuestion">
+           <forward name="answer" path="Tiles.Answer"/>
+           </action>
+        <action input="/UserDoctorList.jsp" name="Sort1" path="/sort2" scope="request" type="pack.SortAction">
+           <forward name="SortedDoctorList" path="Tiles.sortedDoctorList"/> 
+               
+        </action>
+         <action input="/DoctorList2.jsp" name="Sort1" path="/sort1" scope="request" type="pack.SortAction">
+           <forward name="SortedDoctorList" path="Tiles.sortedDoctorList1"/> 
+               
+        </action>
+        <action input="/DoctorAppointmentInformation.jsp" name="sortAppointmentInformation" path="/sortAppointmentInformation" scope="request" type="pack.sortAppointmentInformationAction">
+            <forward name="SortAppointmentInformation" path="Tiles.sortAppointmentInformation"/>
+        </action>
+        <action path="/UserComplaindelete" type="pack.viewUserResponse">
+            <forward name="UserComplainResponse" path="Tiles.UserComplainResponse"/>
+        </action>
+        <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+    </action-mappings>
+    
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="com/myapp/struts/ApplicationResource"/>    
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <!--
+    This plugin initialize Tiles definition factory. This later can takes some
+    parameters explained here after. The plugin first read parameters from
+    web.xml, thenoverload them with parameters defined here. All parameters
+    are optional.
+    The plugin should be declared in each struts-config file.
+    - definitions-config: (optional)
+    Specify configuration file names. There can be several comma
+    separated file names (default: ?? )
+    - moduleAware: (optional - struts1.1)
+    Specify if the Tiles definition factory is module aware. If true
+    (default), there will be one factory for each Struts module.
+    If false, there will be one common factory for all module. In this
+    later case, it is still needed to declare one plugin per module.
+    The factory will be initialized with parameters found in the first
+    initialized plugin (generally the one associated with the default
+    module).
+    true : One factory per module. (default)
+    false : one single shared factory for all modules
+    - definitions-parser-validate: (optional)
+    Specify if xml parser should validate the Tiles configuration file.
+    true : validate. DTD should be specified in file header (default)
+    false : no validation
+
+    Paths found in Tiles definitions are relative to the main context.
+    -->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />      
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+    
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property
+            property="pathnames"
+            value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+  
+</struts-config>

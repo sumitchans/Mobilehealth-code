@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+ <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+
+<!--
+     This is a blank Tiles definition file with a commented example.
+-->
+
+<tiles-definitions>
+
+    <!-- sample tiles definitions
+    <definition name=".mainLayout" path="/common/layouts/classicLayout.jsp">
+        <put name="title"  value="Sample Page Title" />
+        <put name="header" value="/common/header.jsp" />
+        <put name="menu"   value=".mainMenu" />
+        <put name="footer" value="/common/footer.jsp" />
+        <put name="body"   value=".portal.body" />
+    </definition>
+
+    <definition name=".mainMenu" path="/common/layouts/vboxLayout.jsp" >
+        <putList name="list" >
+            <add value=".menu.links" />
+            <add value=".menu.taglib.references" />
+            <add value=".menu.printer.friendly" />
+            <add value=".menu.old.documents" />
+      </putList>
+    </definition>
+
+    <definition name="aPage" extends=".mainLayout">
+        <put name="title"  value="Another Title" />
+        <put name="body"   value=".aPage.body" />
+    </definition>
+
+    end samples -->
+    <definition name="Tiles.Layout" path="/template.jsp">
+        <put name="header" value="/header.jsp"/>
+        <put name="menu" value="/menu.jsp"/>
+        <put name="body" value="/body.jsp"/>
+        <put name="footer" value="/footer.jsp"/>
+    </definition>
+    <definition name="Tiles.Register" extends="Tiles.Layout">
+    <put name="body" value="/register.jsp"/>    
+    </definition>
+     <definition name="Tiles.Rules" extends="Tiles.Layout">
+    <put name="body" value="/rules.jsp"/>    
+    </definition>
+     <definition name="Tiles.ContactUs" extends="Tiles.Layout">
+    <put name="body" value="/contactus.jsp"/>    
+    </definition>
+      <definition name="Tiles.AboutUs" extends="Tiles.Layout">
+    <put name="body" value="/aboutus.jsp"/>    
+    </definition>
+    <definition name="Tiles.LoginFailed" extends="Tiles.Layout">
+    <put name="body" value="/loginFailed.jsp"/>    
+    </definition>
+     <definition name="Tiles.Login" extends="Tiles.Layout">
+    <put name="body" value="/login.jsp"/>    
+    </definition>
+     <definition name="Tiles.RegComp" extends="Tiles.User">
+    <put name="userbody" value="/regcomp.jsp"/>    
+    </definition>
+      <definition name="Tiles.UserNews" extends="Tiles.User">
+    <put name="userbody" value="/UserNews.jsp"/>    
+    </definition>
+     <definition name="Tiles.UserNews1" extends="Tiles.User">
+    <put name="userbody" value="/UserNews1.jsp"/>    
+    </definition>
+     <definition name="Tiles.DocReg" extends="Tiles.Admin">
+    <put name="adminbody" value="/Doctor_Reg.jsp"/>    
+    </definition>
+     <definition name="Tiles.DocRegComp" extends="Tiles.Admin">
+    <put name="adminbody" value="/DocRegComp.jsp"/>    
+    </definition>
+    
+       <definition name="Tiles.User" extends="Tiles.Layout">
+    <put name="body" value="Tiles.User"/>    
+    </definition>
+      <definition name="Tiles.Admin" extends="Tiles.Layout">
+    <put name="body" value="Tiles.Admin"/>    
+    </definition>
+    
+    <definition name="Tiles.DoctorList" extends="Tiles.Admin">
+    <put name="adminbody" value="/DoctorList.jsp"/>    
+    </definition>
+    <definition name="Tiles.ViewComplain" extends="Tiles.Admin">
+    <put name="adminbody" value="/ViewComplain.jsp"/>    
+    </definition>
+    <definition name="Tiles.UserList" extends="Tiles.Admin">
+    <put name="adminbody" value="/UserList.jsp"/>    
+    </definition>
+    <definition name="Tiles.UserDoctorlist" extends="Tiles.User">
+    <put name="userbody" value="/UserDoctorList.jsp"/>    
+    </definition>
+    <definition name="Tiles.GetAppointment" extends="Tiles.User">
+    <put name="userbody" value="/GetAppointment.jsp"/>    
+    </definition>
+    <definition name="Tiles.AskDoctor" extends="Tiles.User">
+    <put name="userbody" value="/AskDoctor.jsp"/>    
+    </definition>
+    <definition name="Tiles.ViewDoctorProfile" extends="Tiles.User">
+    <put name="userbody" value="/ViewDoctorProfile.jsp"/>    
+    </definition>
+     <definition name="Tiles.UserComplain" extends="Tiles.User">
+    <put name="userbody" value="/Complain.jsp"/>    
+    </definition>
+     <definition name="Tiles.UserPrescription" extends="Tiles.User">
+    <put name="userbody" value="/Prescription.jsp"/>    
+    </definition>
+     <definition name="Tiles.UserBill" extends="Tiles.User">
+    <put name="userbody" value="/bill.jsp"/>    
+    </definition>
+     <definition name="Tiles.UserAppointmentInformation" extends="Tiles.User">
+    <put name="userbody" value="/UserAppointmentInformation.jsp"/>    
+    </definition>
+      <definition name="Tiles.UserComplainResponse" extends="Tiles.User">
+    <put name="userbody" value="/UserComplainResponse.jsp"/>    
+    </definition>
+    <definition name="Tiles.ViewUser" extends="Tiles.Admin">
+    <put name="adminbody" value="/ViewUser.jsp"/> 
+    </definition>
+    <definition name="Tiles.ViewDoctor" extends="Tiles.Admin">
+    <put name="adminbody" value="/ViewDoctor.jsp"/> 
+    </definition>
+    <definition name="Tiles.ComplainList1" extends="Tiles.Admin">
+    <put name="adminbody" value="/ComplainList.jsp"/> 
+    </definition>
+      <definition name="Tiles.Response" extends="Tiles.Admin">
+    <put name="adminbody" value="/ComplainResponse.jsp"/> 
+    </definition>
+        <definition name="Tiles.DoctorEdit" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/DoctorEditProfile.jsp"/> 
+    </definition>
+    <definition name="Tiles.Answer" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/Answer.jsp"/> 
+    </definition>
+    <definition name="Tiles.DoctorComplainResponse" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/UserComplainResponse.jsp"/> 
+    </definition>
+     <definition name="Tiles.DiscussionDoctor" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/AskDoctor.jsp"/> 
+    </definition>
+    <definition name="Tiles.DoctorAppointmentInformation" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/DoctorAppointmentInformation.jsp"/> 
+    </definition>
+    <definition name="Tiles.DoctorList2" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/DoctorList2.jsp"/> 
+    </definition>
+    <definition name="Tiles.QuestionList" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/questionlist.jsp"/> 
+    </definition>
+    <definition name="Tiles.DoctorComplain" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/Complain.jsp"/> 
+    </definition>
+      <definition name="Tiles.AddNews1" extends="Tiles.Admin">
+    <put name="adminbody" value="/News.jsp"/> 
+    </definition>
+      <definition name="Tiles.ViewDoctorProfile2" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/ViewDoctorProfile2.jsp"/> 
+    </definition>
+      <definition name="Tiles.DoctorList23" extends="Tiles.Layout">
+    <put name="body" value="/DoctorList23.jsp"/> 
+    </definition>
+    <definition name="Tiles.sortedDoctorList" extends="Tiles.User">
+    <put name="userbody" value="/sortedDoctorList.jsp"/>    
+    </definition>
+       <definition name="Tiles.sortedDoctorList1" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/sortedDoctorList1.jsp"/> 
+    </definition>
+        <definition name="Tiles.sortAppointmentInformation" extends="Tiles.Doctor">
+    <put name="doctorbody" value="/sortAppointmentInformation.jsp"/> 
+    </definition>
+      <definition name="Tiles.Admin" path="/admin.jsp">
+        <put name="header" value="/header.jsp"/>
+        
+        
+        <put name="footer" value="/footer.jsp"/>
+        <put name="adminbody" value="/adminbody.jsp"/>
+          <put name="adminheader" value="/adminheader.jsp"/>
+            <put name="adminmenu" value="/adminmenu.jsp"/>
+    </definition>
+     <definition name="Tiles.User" path="/user.jsp">
+        <put name="header" value="/header.jsp"/>
+      
+        
+        <put name="footer" value="/footer.jsp"/>
+        <put name="userbody" value="/userbody.jsp"/>
+          <put name="userheader" value="/userheader.jsp"/>
+            <put name="usermenu" value="/usermenu.jsp"/>
+    </definition>
+     <definition name="Tiles.Doctor" path="/doctor.jsp">
+        <put name="header" value="/header.jsp"/>
+       
+        
+        <put name="footer" value="/footer.jsp"/>
+        <put name="doctorbody" value="/doctorbody.jsp"/>
+          <put name="doctorheader" value="/doctorheader.jsp"/>
+            <put name="doctormenu" value="/doctormenu.jsp"/>
+    </definition>
+     <definition name="Tiles.EditProfile" extends="Tiles.User">
+    <put name="userbody" value="/editprofile.jsp"/> 
+    </definition>
+   
+    
+
+    <definition name="${YOUR_DEFINITION_HERE}">
+    </definition>
+
+</tiles-definitions>
